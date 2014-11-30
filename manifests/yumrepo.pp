@@ -44,7 +44,7 @@ define justhub::yumrepo (
   yumrepo {
     $reponame :
       descr       => "el${::os_maj_version} - justhub.org - CD",
-      baseurl     => "${baseurl}",
+      baseurl     => "http://sherkin.justhub.org/el${::os_maj_version}",
       enabled     => bool2num(member($enabled,"justhub")),
       protect     => 0,
       gpgcheck    => 1,
