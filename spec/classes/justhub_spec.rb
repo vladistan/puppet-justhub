@@ -7,38 +7,32 @@ describe 'justhub' do
     }
 
     let(:params) { {
-      :enabled     => ['rpmforge'],
-      :baseurl     => 'http://apt.sw.be/redhat/el6/en/i386',
-      :mirrorlist  => 'http://mirrorlist.repoforge.org/el6',
-      :includepkgs => { 'rpmforge' => 'includepkgs' },
-      :exclude     => { 'testing'  => 'exclude' },
+      :enabled     => ['justhub'],
+      :baseurl     => 'http://sherkin.justhub.org/el5/RPMS/x86_64/',
     } }
 
     it 'create the GPG key file' do
-      should contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag').with({
+      should contain_file('/etc/pki/rpm-gpg/RPM-GPG-KEY-justhub-mail').with({
         'ensure' => 'present',
         'owner'  => 'root',
         'group'  => 'root',
         'mode'   => '0644',
-        'source' => 'puppet:///modules/repoforge/RPM-GPG-KEY-rpmforge-dag',
+        'source' => 'puppet:///modules/justhub/RPM-GPG-KEY-justhub-mail',
       })
     end
 
     it 'import the GPG key' do
-      should contain_repoforge__rpm_gpg_key('RPM-GPG-KEY-rpmforge-dag').with({
-        'path' => '/etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag',
+      should contain_justhub__rpm_gpg_key('RPM-GPG-KEY-justhub-mail').with({
+        'path' => '/etc/pki/rpm-gpg/RPM-GPG-KEY-justhub-mail',
       })
     end
 
     it 'instantiate the yum repos' do
-      should contain_repoforge__yumrepo('rpmforge').with({
+      should contain_repoforge__yumrepo('justhub').with({
          'repos'       => {"extras"=>"rpmforge-extras","rpmforge"=>"rpmforge","testing"=>"rpmforge-testing"},
          'baseurl'     => 'http://apt.sw.be/redhat/el6/en/i386',
-         'mirrorlist'  => 'http://mirrorlist.repoforge.org/el6',
-         'enabled'     => ['rpmforge'],
-         'includepkgs' => { 'testing' => 'absent', 'extras' => 'absent', 'rpmforge' => 'includepkgs' },
-         'exclude'     => { 'testing'  => 'exclude', 'extras' => 'absent', 'rpmforge' => 'absent' },
-      })
+         'enabled'     => ['justhub'],
+       })
     end
 
 end
