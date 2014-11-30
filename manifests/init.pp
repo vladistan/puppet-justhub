@@ -15,6 +15,8 @@ class justhub (
   $enabled    = $justhub::params::enabled,
   ) inherits justhub::params {
 
+  include stdlib
+
   validate_array($justhub::enabled)
   validate_string($justhub::baseurl)
 
