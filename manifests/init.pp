@@ -19,4 +19,13 @@ class justhub (
   $exclude = {},
 ) inherits justhub::params {
 
+  validate_array($justhub::enabled)
+  validate_string($justhub::baseurl,$repoforge::mirrorlist)
+
+  if $::osfamily == 'RedHat' {
+
+  } else {
+    notice ("Your operating system ${::operatingsystem} will not have the RepoForge repository applied")
+  }
+
 }
