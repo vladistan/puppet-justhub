@@ -8,7 +8,6 @@ describe 'justhub' do
 
     let(:params) { {
       :enabled     => ['justhub'],
-      :baseurl     => 'http://sherkin.justhub.org/el5/RPMS/x86_64/',
     } }
 
     it 'create the GPG key file' do
@@ -28,7 +27,7 @@ describe 'justhub' do
     end
 
     it 'instantiate the yum repos' do
-      should contain_justhub__yumrepo('bob').with({
+      should contain_justhub__yumrepo('justhub').with({
          'enabled'     => ['justhub'],
        })
     end

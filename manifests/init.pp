@@ -13,7 +13,6 @@
 #
 class justhub (
   $enabled    = $justhub::params::enabled,
-  $baseurl    = $justhub::params::baseurl,
   ) inherits justhub::params {
 
   validate_array($justhub::enabled)
@@ -23,8 +22,8 @@ class justhub (
 
 
     justhub::yumrepo {
-        "bob" :
-        reponame    => 'bob',
+        "justhub" :
+        reponame    => 'justhub',
         require     => Justhub::Rpm_gpg_key['RPM-GPG-KEY-justhub-mail'],
         enabled     => $justhub::enabled,
     }

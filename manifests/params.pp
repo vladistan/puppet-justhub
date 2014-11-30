@@ -12,7 +12,6 @@
 #
 class justhub::params {
 
-  $baseurl = "http://sherkin.justhub.org/el${::os_maj_version}/"
   $enabled = [ 'justhub' ]
 
 }
