@@ -1,0 +1,18 @@
+{
+    "name" : "vladistan-puppet-justhub",
+    "author": "Vlad Korolev",
+    "dependencies": [
+        { "name": "puppetlabs/stdlib", "version_requirement": ">=3.2.0 <5.0.0" },
+    ],
+    "license": "Licensed under (Apache 2.0)",
+    "project_page": "https://github.com/vladistan/puppet-justhub",
+    "source": "https://github.com/vladistan/puppet-justhub",
+    "issues_url": "https://github.com/vladistan/puppet-justhub/issues",
+    "summary": "A Puppet Module that installs justhub repo",
+    "tags": ["things", "stuff"],
+    "operatingsystem_support": [ {
+        "operatingsystem":"RedHat",
+        "operatingsystemrelease":[ "5.0", "6.0" ]
+        }],
+    "version": "0.1.0"
+}
