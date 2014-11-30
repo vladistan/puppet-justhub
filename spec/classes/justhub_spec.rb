@@ -28,9 +28,7 @@ describe 'justhub' do
     end
 
     it 'instantiate the yum repos' do
-      should contain_repoforge__yumrepo('justhub').with({
-         'repos'       => {"extras"=>"rpmforge-extras","rpmforge"=>"rpmforge","testing"=>"rpmforge-testing"},
-         'baseurl'     => 'http://apt.sw.be/redhat/el6/en/i386',
+      should contain_justhub__yumrepo('bob').with({
          'enabled'     => ['justhub'],
        })
     end
