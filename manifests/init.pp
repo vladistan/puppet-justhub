@@ -24,6 +24,9 @@ class justhub (
 
   if $::osfamily == 'RedHat' {
 
+    justhub::rpm_gpg_key { 'RPM-GPG-KEY-justhub-mail' :
+              path => '/etc/pki/rpm-gpg/RPM-GPG-KEY-justhub-mail',
+}
   } else {
     notice ("Your operating system ${::operatingsystem} will not have the RepoForge repository applied")
   }
